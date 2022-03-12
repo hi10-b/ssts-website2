@@ -1,12 +1,18 @@
-const router = require('express').Router();
+import { sql_fetchAllEvents, sql_fetchTodayEvents } from '../sql_queries';
 
-router.route('/').get((req, res) => {
-	Event.query('SELECT * FROM event;', (err, result) => {
-		if (err) throw err;
-		res.send(result);
-		console.log('results ' + result);
-	});
-});
+// const router = require('express').Router();
+
+// router.route('/').get((req, res) => {
+// 	Event.query('SELECT * FROM event;', (err, result) => {
+// 		if (err) throw err;
+// 		res.send(result);
+// 		console.log('results ' + result);
+// 	});
+// });
+
+// router.route('/today').get((req, res) => {
+// 	Event.query
+// })
 
 // const fs = require('fs');
 // const path = require('path');

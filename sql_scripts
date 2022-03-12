@@ -1,0 +1,33 @@
+CREATE TABLE `ssts`.`usertype` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `userType` VARCHAR(15) NULL,
+  PRIMARY KEY (`id`));
+
+  INSERT INTO ssts.users (
+`firstName`,
+`lastName`,
+`email`,
+`phone`,
+`created`,
+`lastLoggedIn`,
+`userType`)
+VALUES ('suparadmin','suparadmin','suparadmin@gmail.com','+61412345432','2008-11-11','2008-11-11',1)
+
+
+
+CREATE TABLE `ssts`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `firstName` VARCHAR(45) NULL,
+  `lastName` VARCHAR(45) NULL,
+  `email` VARCHAR(50) NULL,
+  `phone` VARCHAR(12) NULL,
+  `created` DATE NULL,
+  `lastLoggedIn` DATE NULL,
+  `userType` INT NULL DEFAULT 2,
+  PRIMARY KEY (`id`),
+  INDEX `userType_idx` (`userType` ASC) VISIBLE,
+  CONSTRAINT `userType`
+    FOREIGN KEY (`userType`)
+    REFERENCES `ssts`.`usertype` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);

@@ -28,20 +28,33 @@ import { ActionTypes } from '../constants/actionTypes';
 // 		return axios
 // 			.get('http://localhost:5000')
 // 			.then((res) => {
-// 				dispatch(setEvents(res));
-// 				console.log(`res ${res}`);
+// 				console.log(res);
+// 				dispatch({ type: ActionTypes.SET_EVENTS, events: res.data });
 // 			})
 // 			.catch((err) => {
 // 				console.log('error when fetching ' + err);
 // 			});
 // 	};
 // }
+export function fetchTodayEvents() {
+	console.log('here');
+	return function (dispatch) {
+		return axios
+			.get('http://172.22.0.1:5000/today')
+			.then((res) => {
+				console.log(res);
+				dispatch({ type: ActionTypes.SET_TODAY_EVENTS, todayEvents: res.data });
+			})
+			.catch((err) => {
+				console.log('error when fetching ' + err);
+			});
+	};
+}
 
 export const fetchEvents = () => async (dispatch) => {
+	const res = await axios.get('http://172.22.0.1:5000').then((res) => dispatch({ type: ActionTypes.SET_EVENTS, payload: res.data }));
+	console.log('res' + res);
 	try {
-		const res = axios.get('http://localhost:5000');
-		console.log(res);
-		dispatch({ type: ActionTypes.SET_EVENTS, payload: res.data });
 	} catch (err) {
 		console.log('error when fetching ' + err);
 	}
