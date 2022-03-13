@@ -26,8 +26,8 @@ const db = mysql.createPool({
 
 const todayDate = new Date() / 1000;
 
-const sql_fetchAllEvents = 'SELECT * FROM event;';
-const sql_fetchTodayEvents = `SELECT * FROM event WHERE startDate = ${1530938992000} ; `;
+const sql_fetchAllEvents = 'SELECT * FROM ssts.event;';
+const sql_fetchTodayEvents = `SELECT * FROM ssts.event WHERE startDate = ${1530938992000} ; `;
 
 app.get('/', (req, res) => {
 	db.query(sql_fetchAllEvents, (err, result) => {
@@ -42,6 +42,16 @@ app.get('/today', (req, res) => {
 		if (err) throw err;
 		res.send(result);
 		console.log(result);
+	});
+});
+
+app.post('/user', (req, res) => {
+	var userEmail = req.body.email;
+	const sql_fetchUserByEmail = `SELECT * FROM ssts.users WHERE email = "${userEmail}"`;
+
+	db.query(sql_fetchUserByEmail, (err, result) => {
+		if (err) throw err;
+		res.send(result);
 	});
 });
 

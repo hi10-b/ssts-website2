@@ -20,21 +20,24 @@ const Events = ({ events }) => {
 			}}
 		>
 			{/* <GridTitle title="Events" /> */}
-			{/* <Row style={{ padding: '10px', minHeight: '40vh' }}>
-				{events.map((event) => {
-					return (
-						<GridContainer
-							key={event.id}
-							title={event.name}
-							imgPath={event.image}
-							body={event.description}
-							footer={ConvertDate(event.startDate)}
-						/>
-					);
-				})}
-			</Row> */}
+			<Row style={{ padding: '10px' }}>
+				{Array.isArray(events) && events.length ? (
+					events.map((event) => {
+						return (
+							<GridContainer
+								key={event.id}
+								title={event.name}
+								imgPath={event.image}
+								body={event.description}
+								footer={ConvertDate(event.startDate)}
+							/>
+						);
+					})
+				) : (
+					<h1>no events</h1>
+				)}
+			</Row>
 			{/* <Row style={{ padding: '10px', minHeight: '40vh' }}>{eventItem}</Row> */}
-			<h1>{typeof events}</h1>
 		</Container>
 	);
 };

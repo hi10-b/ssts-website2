@@ -7,14 +7,14 @@ import { Container } from 'react-bootstrap';
 import Banner from '../features/banner';
 
 const LandingPage = () => {
-	const allEvents = useSelector((state) => state.eventsreducer2.allEvents);
-	const todayEvents = useSelector((state) => state);
+	const allEvents = useSelector((state) => state.allEvents.allEvents);
+	const todayEvents = useSelector((state) => state.allEvents.todayEvents);
 
 	const dispatch = useDispatch();
 
 	const loadEvents = useCallback(async () => {
 		try {
-			console.log('events ' + fetchEvents());
+			console.log('events ' + fetchEvents);
 			await dispatch(fetchEvents());
 		} catch (err) {
 			console.log(err);
@@ -23,7 +23,7 @@ const LandingPage = () => {
 
 	const loadTodayEvents = useCallback(async () => {
 		try {
-			console.log('today events: ' + fetchTodayEvents());
+			console.log('today events: ' + fetchTodayEvents);
 			await dispatch(fetchTodayEvents());
 		} catch (err) {
 			console.log(err);
@@ -34,22 +34,16 @@ const LandingPage = () => {
 	useEffect(() => {
 		loadEvents();
 		console.log('rendered');
-	}, [loadEvents]);
+	}, [dispatch, loadEvents]);
 
 	useEffect(() => {
 		loadTodayEvents();
 		console.log('rendered today events');
-	}, [loadTodayEvents]);
+	}, [dispatch, loadTodayEvents]);
 
 	return (
-		<div
-			style={{
-				background: `linear-gradient(to right, rgba(0, 224, 255, 1), rgba(0, 133, 255, 1),rgba(0, 224, 255, 1))`,
-
-				position: 'center',
-			}}
-		>
-			<Banner />
+		<div style={{}}>
+			{/* <Banner /> */}
 			<TopGrid events={todayEvents} />
 			<Events events={allEvents} />
 		</div>

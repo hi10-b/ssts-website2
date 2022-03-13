@@ -3,9 +3,18 @@ import { Row, Col, Container } from 'react-bootstrap';
 
 const Banner = () => {
 	return (
-		<Container>
+		<Container
+			style={{
+				// background: 'rgba(0, 0, 0, 0.1)',
+				background: 'linear-gradient(to right, rgba(224, 224, 255, 0), rgba(175, 133, 255, 0.7), rgba(224, 224, 255, 0))',
+				marginTop: '10px',
+				marginBottom: '10px',
+			}}
+		>
 			<Row>
-				<img src={'/bg.png'} alt="Top Banner" />
+				<a href="/">
+					<img src={'/bg.png'} alt="Top Banner" />
+				</a>
 			</Row>
 		</Container>
 	);

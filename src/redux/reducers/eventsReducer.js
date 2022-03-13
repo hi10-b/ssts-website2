@@ -1,4 +1,4 @@
-import { ActionTypes } from '../constants/actionTypes';
+import { EventActionTypes } from '../constants/actionTypes';
 
 const initState = {
 	allEvents: [],
@@ -7,12 +7,12 @@ const initState = {
 
 export const eventReducer = (state = initState, action) => {
 	switch (action.type) {
-		case ActionTypes.SET_EVENTS:
+		case EventActionTypes.SET_EVENTS:
 			return {
 				...state,
 				allEvents: action.events,
 			};
-		case ActionTypes.SET_TODAY_EVENTS:
+		case EventActionTypes.SET_TODAY_EVENTS:
 			return {
 				...state,
 				todayEvents: action.todayEvents,
