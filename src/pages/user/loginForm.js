@@ -1,41 +1,42 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Button, Form, Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import { getUser } from '../../redux/actions/userAction';
-
-const tryLogin = (data) => {
-	console.log(data.userEmail);
-
-	// return <h1>login</h1>;
-};
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
-	const [userEmail, setUserEmail] = useState('a');
-	const [userPassword, setUserPassword] = useState();
+	// const user = useSelector((state) => state.userReducer.user);
+	const loggedUser = sessionStorage.getItem('curUser');
 
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm();
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const tryLogin = useCallback(
 		async (data) => {
 			try {
-				console.log(data);
 				await dispatch(getUser(data.userEmail));
 			} catch (err) {
 				console.log(err);
 			}
+			console.log(loggedUser);
+			if (loggedUser === 'true') {
+				navigate('/admin');
+			}
 		},
-		[dispatch]
+		[dispatch, loggedUser]
 	);
+
+	useEffect(() => {
+		console.log(loggedUser);
+	}, [loggedUser, navigate]);
 
 	useEffect(() => {
 		tryLogin();
@@ -56,7 +57,6 @@ const LoginForm = () => {
 					<Form.Text className="text-muted">{errors.userEmail?.type === 'pattern' && '*Enter Valid Email'}</Form.Text>
 					{/* <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text> */}
 				</Form.Group>
-
 				<Form.Group className="mb-3" controlId="formBasicPassword">
 					<Form.Label>Password</Form.Label>
 					<Form.Control type="password" placeholder="Password" {...register('userPassword', { required: true })} />

@@ -20,7 +20,7 @@ const Events = ({ events }) => {
 			}}
 		>
 			{/* <GridTitle title="Events" /> */}
-			<Row style={{ padding: '10px' }}>
+			<Row style={{ padding: '10px' }} xs={4}>
 				{Array.isArray(events) && events.length ? (
 					events.map((event) => {
 						return (
@@ -37,6 +37,7 @@ const Events = ({ events }) => {
 					<h1>no events</h1>
 				)}
 			</Row>
+
 			{/* <Row style={{ padding: '10px', minHeight: '40vh' }}>{eventItem}</Row> */}
 		</Container>
 	);

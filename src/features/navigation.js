@@ -15,7 +15,7 @@ const Navigation = () => {
 						<Nav.Link href="/gallery">Gallery</Nav.Link>
 					</Nav>
 					<Nav>
-						<Nav.Link href="/admin">Admin</Nav.Link>
+						<Nav.Link href="/adminLogin">Admin</Nav.Link>
 						{/* <Nav.Link href="/gallery">Gallery</Nav.Link> */}
 					</Nav>
 				</Navbar.Collapse>

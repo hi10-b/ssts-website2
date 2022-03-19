@@ -42,7 +42,7 @@ const LandingPage = () => {
 	}, [dispatch, loadTodayEvents]);
 
 	return (
-		<div style={{}}>
+		<div>
 			{/* <Banner /> */}
 			<TopGrid events={todayEvents} />
 			<Events events={allEvents} />
