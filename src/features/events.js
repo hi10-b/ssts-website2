@@ -3,6 +3,7 @@ import { Row, Container } from 'react-bootstrap';
 import GridContainer from '../components/gridContainer';
 import printEvents from '../components/printEvents';
 import { ConvertDate } from '../components/convertDate';
+import Titles from '../components/titles';
 
 const Events = ({ events }) => {
 	// const eventItem = events.map((event) => {
@@ -19,7 +20,7 @@ const Events = ({ events }) => {
 				marginBottom: '10px',
 			}}
 		>
-			{/* <GridTitle title="Events" /> */}
+			<Titles title="Events" />
 			<Row style={{ padding: '10px' }} xs={4}>
 				{Array.isArray(events) && events.length ? (
 					events.map((event) => {

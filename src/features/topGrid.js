@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import GridContainer from '../components/gridContainer';
 import { Row, Container } from 'react-bootstrap';
 import { ConvertDate } from '../components/convertDate';
+import Titles from '../components/titles';
 
 // import GridTitle from '../Components/gridTitle';
 
@@ -18,7 +19,7 @@ const TopGrid = ({ events }) => {
 				marginBottom: '10px',
 			}}
 		>
-			{/* <GridTitle title="Events" /> */}
+			<Titles title="What's Happening" />
 			<Row style={{ padding: '10px' }}>
 				{Array.isArray(events) && events.length ? (
 					events.map((event) => {
