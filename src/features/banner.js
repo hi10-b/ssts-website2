@@ -13,7 +13,7 @@ const Banner = () => {
 		>
 			<Row>
 				<a href="/">
-					<img src={'/bg.png'} alt="Top Banner" />
+					<img src={'/bg.png'} alt="Top Banner" style={{ width: '100%' }} />
 				</a>
 			</Row>
 		</Container>

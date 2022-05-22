@@ -2,10 +2,11 @@ import { Card, Button } from 'react-bootstrap';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import 'placeHolder.png' from '../../public';
-
+import './CardStyles.css';
 export const CardBlock = ({ title, body, imgPath, footer }) => {
+	const classes = 'fullcard styledCard';
 	return (
-		<Card className={'fullCard'} border="dark" style={{ width: {}, height: '100%' }}>
+		<Card className={classes} style={{ width: {}, height: '100%' }}>
 			{title && <Header header={title} />}
 			{/* {body && <Body body={body} />} */}
 			{imgPath && <BodyImage2 imgPath={imgPath} />}

@@ -1,0 +1,2 @@
+events further details (read more) reveal
+- slide up reveal on card itself (current card gets replaced by more details)

@@ -5,17 +5,23 @@ import { Link } from 'react-router-dom';
 
 const Navigation = () => {
 	return (
-		<Navbar bg="primary" variant="light" expand="lg">
+		<Navbar variant="dark" expand="lg" style={{ backgroundColor: 'red', width: '80%', position: 'sticky', alignContent: 'center' }}>
 			<Container className=".d-none .d-md-block .d-lg-none">
 				<Navbar.Brand href="/"></Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="me-auto">
-						<Nav.Link href="/">Home</Nav.Link>
-						<Nav.Link href="/gallery">Gallery</Nav.Link>
+						<Nav.Link style={{ fontWeight: 'bold' }} href="/">
+							Home
+						</Nav.Link>
+						<Nav.Link style={{ fontWeight: 'bold' }} href="/gallery">
+							Gallery
+						</Nav.Link>
 					</Nav>
 					<Nav>
-						<Nav.Link href="/adminLogin">Admin</Nav.Link>
+						<Nav.Link style={{ fontWeight: 'bold' }} href="/adminLogin">
+							Admin
+						</Nav.Link>
 						{/* <Nav.Link href="/gallery">Gallery</Nav.Link> */}
 					</Nav>
 				</Navbar.Collapse>

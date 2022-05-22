@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
 	const navigate = useNavigate();
+	const loggedUser = sessionStorage.getItem('curUser');
+
 	return (
 		<Container>
 			<Button
@@ -16,15 +18,21 @@ const Admin = () => {
 					navigate('/adminLogin');
 				}}
 			>
-				Logout
+				{loggedUser == 'true' ? <>Logout</> : <>Login</>}
 			</Button>
-			<AdminEvents
-				tableHead={['Date', 'Name', 'Description', 'Edit', 'Delete']}
-				tableBody={[
-					['aa', 'ss', 'dd'],
-					['cc', 'vv', 'bb'],
-				]}
-			/>
+			{loggedUser == 'true' ? (
+				<AdminEvents
+					tableHead={['Date', 'Name', 'Description', 'Edit', 'Delete']}
+					tableBody={[
+						['aa', 'ss', 'dd'],
+						['cc', 'vv', 'bb'],
+					]}
+				/>
+			) : (
+				<h1>no user logged in</h1>
+			)}
+
+			<h1>test logged user val {loggedUser}</h1>
 		</Container>
 	);
 };

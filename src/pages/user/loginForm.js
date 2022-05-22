@@ -62,9 +62,7 @@ const LoginForm = () => {
 					<Form.Control type="password" placeholder="Password" {...register('userPassword', { required: true })} />
 					<Form.Text className="text-muted">{errors.userPassword?.type === 'required' && '*Enter Password'}</Form.Text>
 				</Form.Group>
-				<Form.Group className="mb-3" controlId="formBasicCheckbox">
-					<Form.Check type="checkbox" label="Check me out" />
-				</Form.Group>
+				<h1>TEST LOGGED USER VAL {loggedUser}</h1>
 				<Button variant="primary" type="submit">
 					Submit
 				</Button>
