@@ -5,29 +5,30 @@ import { Link } from 'react-router-dom';
 
 const Navigation = () => {
 	return (
-		<Navbar variant="dark" expand="lg" style={{ backgroundColor: 'red', width: '80%', position: 'sticky', alignContent: 'center' }}>
-			<Container className=".d-none .d-md-block .d-lg-none">
-				<Navbar.Brand href="/"></Navbar.Brand>
-				<Navbar.Toggle aria-controls="basic-navbar-nav" />
-				<Navbar.Collapse id="basic-navbar-nav">
-					<Nav className="me-auto">
-						<Nav.Link style={{ fontWeight: 'bold' }} href="/">
-							Home
-						</Nav.Link>
-						<Nav.Link style={{ fontWeight: 'bold' }} href="/gallery">
-							Gallery
-						</Nav.Link>
-					</Nav>
-					<Nav>
-						<Nav.Link style={{ fontWeight: 'bold' }} href="/adminLogin">
-							Admin
-						</Nav.Link>
-						{/* <Nav.Link href="/gallery">Gallery</Nav.Link> */}
-					</Nav>
-				</Navbar.Collapse>
-				{/* <Navbar.Collapse className="me-auto"></Navbar.Collapse> */}
-			</Container>
-			{/* <Container className="d-none d-md-block" expand={false}>
+		<Container>
+			<Navbar variant="dark" expand="lg" style={{ backgroundColor: 'red', position: 'sticky', alignContent: 'center' }}>
+				<Container className=".d-none .d-md-block .d-lg-none">
+					<Navbar.Brand href="/"></Navbar.Brand>
+					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+					<Navbar.Collapse id="basic-navbar-nav">
+						<Nav className="me-auto">
+							<Nav.Link style={{ fontWeight: 'bold' }} href="/">
+								Home
+							</Nav.Link>
+							<Nav.Link style={{ fontWeight: 'bold' }} href="/gallery">
+								Gallery
+							</Nav.Link>
+						</Nav>
+						<Nav>
+							<Nav.Link style={{ fontWeight: 'bold' }} href="/adminLogin">
+								Admin
+							</Nav.Link>
+							{/* <Nav.Link href="/gallery">Gallery</Nav.Link> */}
+						</Nav>
+					</Navbar.Collapse>
+					{/* <Navbar.Collapse className="me-auto"></Navbar.Collapse> */}
+				</Container>
+				{/* <Container className="d-none d-md-block" expand={false}>
 				<Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
 				<Navbar.Toggle aria-controls="offcanvasNavbar" />
 				<Navbar.Offcanvas expand="lg" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" placement="end">
@@ -47,7 +48,8 @@ const Navigation = () => {
 				</Navbar.Offcanvas>
 				<Navbar.Collapse className="me-auto"></Navbar.Collapse>
 			</Container> */}
-		</Navbar>
+			</Navbar>
+		</Container>
 	);
 };
 

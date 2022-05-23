@@ -1,12 +1,14 @@
 import { Card, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import 'placeHolder.png' from '../../public';
 import './CardStyles.css';
 export const CardBlock = ({ title, body, imgPath, footer }) => {
 	const classes = 'fullcard styledCard';
+	const navigate = useNavigate();
 	return (
-		<Card className={classes} style={{ width: {}, height: '100%' }}>
+		<Card className={classes} style={{ width: {}, height: '100%' }} onClick={() => navigate('/')}>
 			{title && <Header header={title} />}
 			{/* {body && <Body body={body} />} */}
 			{imgPath && <BodyImage2 imgPath={imgPath} />}

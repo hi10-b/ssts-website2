@@ -1,13 +1,16 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CardBlock2 from '../components/cardBlock2';
+import GalleryAlbums from '../features/galleryAlbums';
 
 const Gallery = () => {
 	return (
-		// <div>
-		// 	<h1>Gallery</h1>
-		// </div>
-		<CardBlock2 />
+		<Container>
+			<GalleryAlbums />
+		</Container>
+		// <GalleryAlbums albums={...albums from db}/>
+		// <CardBlock2 />
 	);
 };
 
