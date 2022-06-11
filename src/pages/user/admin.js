@@ -1,31 +1,31 @@
-import React from 'react';
+import React from "react";
 
-import { Button, Form, Container } from 'react-bootstrap';
-import { ListTable } from '../../components/table';
-import { AdminEvents } from '../../features/admin/events';
-import { useNavigate } from 'react-router-dom';
+import { Button, Form, Container } from "react-bootstrap";
+import { ListTable } from "../../components/table";
+import { AdminEvents } from "../../features/admin/events";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
 	const navigate = useNavigate();
-	const loggedUser = sessionStorage.getItem('curUser');
+	const loggedUser = sessionStorage.getItem("curUser");
 
 	return (
 		<Container>
 			<Button
 				variant="primary"
 				onClick={() => {
-					sessionStorage.setItem('curUser', false);
-					navigate('/adminLogin');
+					sessionStorage.setItem("curUser", false);
+					navigate("/adminLogin");
 				}}
 			>
-				{loggedUser == 'true' ? <>Logout</> : <>Login</>}
+				{loggedUser == "true" ? <>Logout</> : <>Login</>}
 			</Button>
-			{loggedUser == 'true' ? (
+			{loggedUser == "true" ? (
 				<AdminEvents
-					tableHead={['Date', 'Name', 'Description', 'Edit', 'Delete']}
+					tableHead={["Date", "Name", "Description", "Edit", "Delete"]}
 					tableBody={[
-						['aa', 'ss', 'dd'],
-						['cc', 'vv', 'bb'],
+						["aa", "ss", "dd"],
+						["cc", "vv", "bb"],
 					]}
 				/>
 			) : (
@@ -33,6 +33,7 @@ const Admin = () => {
 			)}
 
 			<h1>test logged user val {loggedUser}</h1>
+			<h1>"સાચા હવે સંત સયાંણ, લક્ષ્ણ તેનાં લહું જો;"</h1>
 		</Container>
 	);
 };

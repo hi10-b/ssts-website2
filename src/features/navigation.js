@@ -1,26 +1,33 @@
-import React from 'react';
-import { Container, Navbar, Nav, Offcanvas } from 'react-bootstrap';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Container, Navbar, Nav, Offcanvas } from "react-bootstrap";
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
 	return (
 		<Container>
-			<Navbar variant="dark" expand="lg" style={{ backgroundColor: 'red', position: 'sticky', alignContent: 'center' }}>
+			<Navbar
+				variant="dark"
+				expand="lg"
+				style={{ backgroundColor: "red", position: "sticky", alignContent: "center" }}
+			>
 				<Container className=".d-none .d-md-block .d-lg-none">
 					<Navbar.Brand href="/"></Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
-							<Nav.Link style={{ fontWeight: 'bold' }} href="/">
+							<Nav.Link style={{ fontWeight: "bold" }} href="/">
 								Home
 							</Nav.Link>
-							<Nav.Link style={{ fontWeight: 'bold' }} href="/gallery">
+							<Nav.Link style={{ fontWeight: "bold" }} href="/gallery">
 								Gallery
+							</Nav.Link>
+							<Nav.Link style={{ fontWeight: "bold" }} href="/kirtans">
+								Kirtans
 							</Nav.Link>
 						</Nav>
 						<Nav>
-							<Nav.Link style={{ fontWeight: 'bold' }} href="/adminLogin">
+							<Nav.Link style={{ fontWeight: "bold" }} href="/adminLogin">
 								Admin
 							</Nav.Link>
 							{/* <Nav.Link href="/gallery">Gallery</Nav.Link> */}
