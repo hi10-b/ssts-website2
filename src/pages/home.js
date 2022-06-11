@@ -7,6 +7,7 @@ import Gallery from './gallery';
 import Banner from '../features/banner';
 import LoginForm from './user/loginForm';
 import Admin from './user/admin';
+import AllImages from '../features/imageGallery';
 
 const Home = () => {
 	return (
@@ -18,6 +19,7 @@ const Home = () => {
 				<Route path="/gallery" element={<Gallery />} />
 				<Route path="/adminLogin" element={<LoginForm />} />
 				<Route path="/admin" element={<Admin />} />
+				<Route path="/allImages" element={<AllImages />} />
 				<Route path="*" element={<Navigate replace to="/" />} />
 			</Routes>
 		</Router>

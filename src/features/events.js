@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Container } from 'react-bootstrap';
 import GridContainer from '../components/gridContainer';
 import printEvents from '../components/printEvents';
@@ -10,6 +10,7 @@ const Events = ({ events }) => {
 	// 		<GridContainer key={event.id} title={event.name} imgPath={event.image} body={event.description} footer={ConvertDate(event.startDate)} />
 	// 	);
 	// });
+	const [position, setPosition] = useState(0);
 
 	return (
 		<Container
@@ -22,14 +23,17 @@ const Events = ({ events }) => {
 			{/* <GridTitle title="Events" /> */}
 			<Row style={{ padding: '10px' }} xs={4}>
 				{Array.isArray(events) && events.length ? (
-					events.map((event) => {
+					events.map((event, index) => {
 						return (
 							<GridContainer
 								key={event.id}
 								title={event.name}
 								imgPath={event.image}
 								body={event.description}
+								startDate={ConvertDate(event.startDate)}
 								footer={ConvertDate(event.startDate)}
+								description={event.description}
+								positions={index}
 							/>
 						);
 					})

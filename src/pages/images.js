@@ -8,8 +8,8 @@ import AllImages from '../features/imageGallery';
 const Gallery = () => {
 	return (
 		<Container>
-			<GalleryAlbums />
-			{/* <AllImages /> */}
+			{/* <GalleryAlbums /> */}
+			<AllImages />
 		</Container>
 		// <GalleryAlbums albums={...albums from db}/>
 		// <CardBlock2 />

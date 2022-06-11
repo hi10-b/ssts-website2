@@ -8,7 +8,8 @@ export const CardBlock = ({ title, body, imgPath, footer }) => {
 	const classes = 'fullcard styledCard';
 	const navigate = useNavigate();
 	return (
-		<Card className={classes} style={{ width: {}, height: '100%' }} onClick={() => navigate('/')}>
+		// <Card className={classes} style={{ width: {}, height: '100%' }} onClick={() => navigate('/allImages')}>
+		<Card className={classes} style={{ width: {}, height: '100%' }}>
 			{title && <Header header={title} />}
 			{/* {body && <Body body={body} />} */}
 			{imgPath && <BodyImage2 imgPath={imgPath} />}
