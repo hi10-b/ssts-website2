@@ -21,6 +21,9 @@ const Navigation = () => {
 							<Nav.Link style={{ fontWeight: 'bold' }} href="/allImages">
 								ImageGallery
 							</Nav.Link>
+							<Nav.Link style={{ fontWeight: 'bold' }} href="/kirtans">
+								Kirtans
+							</Nav.Link>
 						</Nav>
 						<Nav>
 							<Nav.Link style={{ fontWeight: 'bold' }} href="/adminLogin">

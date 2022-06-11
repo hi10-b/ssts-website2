@@ -9,6 +9,8 @@ import LoginForm from './user/loginForm';
 import Admin from './user/admin';
 import AllImages from '../features/imageGallery';
 
+import Kirtans from './kirtans';
+
 const Home = () => {
 	return (
 		<Router>
@@ -16,6 +18,7 @@ const Home = () => {
 			<Navigation />
 			<Routes>
 				<Route path="/" exact element={<LandingPage />} />
+				<Route path="/kirtans" exact element={<Kirtans />} />
 				<Route path="/gallery" element={<Gallery />} />
 				<Route path="/adminLogin" element={<LoginForm />} />
 				<Route path="/admin" element={<Admin />} />
