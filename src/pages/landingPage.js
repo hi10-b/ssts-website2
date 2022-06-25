@@ -5,9 +5,11 @@ import Events from '../features/events';
 import TopGrid from '../features/topGrid';
 import { Container } from 'react-bootstrap';
 import Banner from '../features/banner';
+import { allEvents2 } from './allEvents';
 
 const LandingPage = () => {
-	const allEvents = useSelector((state) => state.allEvents.allEvents);
+	// const allEvents = useSelector((state) => state.allEvents.allEvents);
+	const allEvents = allEvents2;
 	const todayEvents = useSelector((state) => state.allEvents.todayEvents);
 
 	const dispatch = useDispatch();
