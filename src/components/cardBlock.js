@@ -4,15 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import 'placeHolder.png' from '../../public';
 import './CardStyles.css';
+
 export const CardBlock = ({ title, body, imgPath, footer }) => {
-	const classes = 'fullcard styledCard';
+	const classes = 'fullcard styledCard onHoverCard';
 	const navigate = useNavigate();
 	return (
 		// <Card className={classes} style={{ width: {}, height: '100%' }} onClick={() => navigate('/allImages')}>
 		<Card className={classes} style={{ width: {}, height: '100%' }}>
-			{title && <Header header={title} />}
-			{/* {body && <Body body={body} />} */}
-			{imgPath && <BodyImage2 imgPath={imgPath} />}
+			{title && <Header header={title} className={'card_title'} />}
+			{body && <Body body={body} />}
+			{imgPath && <BodyImage2 imgPath={imgPath} className={'card_img'} />}
 			{/* {footer && <Footer footer={footer} />} */}
 		</Card>
 	);
@@ -24,12 +25,13 @@ const Header = ({ header }) => {
 
 const Body = ({ body }) => {
 	return (
-		<Card.Body>
-			{/* <img src={image} style={{ height: '80%', width: '100%' }}></img> */}
+		<Card.Body className={'card_body'}>
+			{/* <img src={'./gm2.png'} style={{ height: '80%', width: '100%' }}></img> */}
+
 			<Card.Text>{body}</Card.Text>
-			{/* <Card.Text>
+			<Card.Text>
 				<h1>asd</h1>
-			</Card.Text> */}
+			</Card.Text>
 		</Card.Body>
 	);
 };

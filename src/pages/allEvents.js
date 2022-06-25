@@ -72,7 +72,8 @@ export const allEvents2 = [
 	{
 		id: 8,
 		name: 'Holi',
-		description: 'The day of colours2',
+		description:
+			"Holi is a Hindu festival that takes place every spring. It's all about new beginnings — Holi welcomes the spring season and celebrates the end of winter. The Holi festival always falls on Purnima, or the day of the full moon. It's a two-day holiday; the day of the March full moon is Holika Dahan.",
 		image: '/gm2.png',
 		startDate: 1530417300000,
 		endDate: 1530417300000,
