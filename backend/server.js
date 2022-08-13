@@ -28,6 +28,7 @@ const todayDate = new Date() / 1000;
 
 const sql_fetchAllEvents = "SELECT * FROM ssts.event;";
 const sql_fetchTodayEvents = `SELECT * FROM ssts.event WHERE startDate = ${1530938992000} ; `;
+const sql_fetchGalleryAlbums = `SELECT * FROM ssts.albums`;
 
 app.get("/", (req, res) => {
 	db.query(sql_fetchAllEvents, (err, result) => {
@@ -42,6 +43,13 @@ app.get("/today", (req, res) => {
 		// if (err) throw err;
 		res.send(result);
 		console.log(result);
+	});
+});
+
+app.get("/gallery", (req, res) => {
+	db.query(sql_fetchGalleryAlbums, (err, result) => {
+		res.send(result);
+		console.log("gallery albums: ", result);
 	});
 });
 
