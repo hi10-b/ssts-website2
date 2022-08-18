@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
 // import { setTopGridEvents } from '../Redux/actions/eventsAction';
-import GridContainer from '../components/gridContainer';
-import { Row, Container } from 'react-bootstrap';
-import { ConvertDate } from '../components/convertDate';
+import GridContainer from "../components/gridContainer";
+import { Row, Container } from "react-bootstrap";
+import { ConvertDate } from "../components/convertDate";
 
 // import GridTitle from '../Components/gridTitle';
 
@@ -13,13 +13,13 @@ const TopGrid = ({ events }) => {
 	return (
 		<Container
 			style={{
-				background: 'rgba(0, 0, 0, 0.3)',
-				marginTop: '10px',
-				marginBottom: '10px',
+				background: "rgba(0, 0, 0, 0.3)",
+				marginTop: "10px",
+				marginBottom: "10px",
 			}}
 		>
 			{/* <GridTitle title="Events" /> */}
-			<Row style={{ padding: '10px' }}>
+			<Row style={{ padding: "10px" }}>
 				{Array.isArray(events) && events.length ? (
 					events.map((event) => {
 						return (
@@ -33,7 +33,7 @@ const TopGrid = ({ events }) => {
 						);
 					})
 				) : (
-					<h1>no events</h1>
+					<h1>no events today</h1>
 				)}
 			</Row>
 		</Container>
