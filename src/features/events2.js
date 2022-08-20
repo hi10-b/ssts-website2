@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -69,10 +69,20 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const Events2 = ({ events }) => {
 	const theme = useTheme();
-	const [open, setOpen] = React.useState(false);
-
-	const handleDrawerOpen = () => {
-		setOpen(true);
+	const [open, setOpen] = useState(false);
+	const [eventName, setEventName] = useState('');
+	const [curPosition, setCurPosition] = useState();
+	const [curImg, setCurImg] = useState();
+	const handleDrawerOpen = (returnEvent) => {
+		if (curPosition == returnEvent.positions) {
+			setOpen(false);
+			setCurPosition();
+		} else {
+			setOpen(true);
+			setEventName(returnEvent.title);
+			setCurPosition(returnEvent.positions);
+			setCurImg(returnEvent.img);
+		}
 	};
 
 	const handleDrawerClose = () => {
@@ -83,15 +93,16 @@ const Events2 = ({ events }) => {
 		<Container>
 			<Box sx={{ display: 'flex' }}>
 				<Main open={open}>
-					<Events events={events} onclick={handleDrawerOpen} />
+					<Events events={events} onclick={(returnEvent) => handleDrawerOpen(returnEvent)} />
 				</Main>
 				<Drawer
 					sx={{
 						width: drawerWidth,
 						flexShrink: 0,
 						'& .MuiDrawer-paper': {
-							width: 500,
+							width: '30%',
 						},
+						display: { xs: 'none', md: 'block' },
 					}}
 					variant="persistent"
 					anchor="right"
@@ -99,10 +110,25 @@ const Events2 = ({ events }) => {
 				>
 					<DrawerHeader>
 						<IconButton onClick={handleDrawerClose}>{theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}</IconButton>
+						<div>
+							<h1>Clicked Event</h1>
+						</div>
 					</DrawerHeader>
 					<Divider />
-
-					<Divider />
+					<Container>
+						<h1>{curImg}</h1>
+						<img
+							src={curImg}
+							alt={eventName}
+							style={{
+								width: '60%',
+								alignSelf: 'center',
+								position: 'relative',
+							}}
+						/>
+						<h1>{eventName}</h1>
+						<h1>{curPosition}</h1>
+					</Container>
 				</Drawer>
 			</Box>
 		</Container>

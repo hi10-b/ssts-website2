@@ -4,7 +4,7 @@ import GridContainer from '../components/gridContainer';
 import printEvents from '../components/printEvents';
 import { ConvertDate } from '../components/convertDate';
 
-const Events = ({ events, onclick }) => {
+const Events = ({ events, onclick, setName }) => {
 	// const eventItem = events.map((event) => {
 	// 	return (
 	// 		<GridContainer key={event.id} title={event.name} imgPath={event.image} body={event.description} footer={ConvertDate(event.startDate)} />
@@ -33,6 +33,7 @@ const Events = ({ events, onclick }) => {
 								description={event.description}
 								positions={index}
 								onclick={onclick}
+								setName={setName}
 							/>
 						);
 					})

@@ -4,12 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import 'placeHolder.png' from '../../public';
 import './CardStyles.css';
-export const CardBlock = ({ title, body, imgPath, footer, onclick }) => {
+export const CardBlock = ({ title, body, imgPath, footer, onclick, setName, positions }) => {
 	const classes = 'fullcard styledCard';
 	const navigate = useNavigate();
+	const returnEvent = {
+		positions: positions,
+		title: title,
+		img: imgPath,
+	};
 	return (
 		// <Card className={classes} style={{ width: {}, height: '100%' }} onClick={() => navigate('/allImages')}>
-		<Card className={classes} style={{ width: {}, height: '100%' }} onClick={onclick}>
+		<Card className={classes} style={{ width: '95%', marginBottom: '10%' }} onClick={() => onclick(returnEvent)}>
 			{title && <Header header={title} />}
 			{/* {body && <Body body={body} />} */}
 			{imgPath && <BodyImage2 imgPath={imgPath} />}

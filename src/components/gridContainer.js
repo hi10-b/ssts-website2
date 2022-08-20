@@ -10,7 +10,7 @@ const GridContainer = ({ title, body, imgPath, footer, positions, startDate, des
 			{/* <Col xl={3} md={6} xs={12} className={'d-none d-xl-block'}> */}
 			<Col xl={3} md={6} xs={12}>
 				{/* <Col md={6} className="d-none d-sm-block"> */}
-				<CardBlock title={title} body={body} imgPath={imgPath} footer={footer} onclick={onclick} />
+				<CardBlock title={title} body={body} imgPath={imgPath} footer={footer} onclick={onclick} positions={positions} />
 			</Col>
 		</>
 	);
