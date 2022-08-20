@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchEvents, fetchTodayEvents } from "../redux/actions/eventsAction";
-import Events from "../features/events";
-import TopGrid from "../features/topGrid";
-import { Container } from "react-bootstrap";
-import Banner from "../features/banner";
-import { allEvents2 } from "./allEvents";
-import Events2 from "../features/events2";
+import React, { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchEvents, fetchTodayEvents } from '../redux/actions/eventsAction';
+import Events from '../features/events';
+import TopGrid from '../features/topGrid';
+import { Container } from 'react-bootstrap';
+import Banner from '../features/banner';
+import { allEvents2 } from './allEvents';
+import Events2 from '../features/events2';
 
 const LandingPage = () => {
 	// const allEvents = useSelector((state) => state.allEvents.allEvents);
@@ -17,7 +17,7 @@ const LandingPage = () => {
 
 	const loadEvents = useCallback(async () => {
 		try {
-			console.log("events " + fetchEvents);
+			console.log('events ' + fetchEvents);
 			await dispatch(fetchEvents());
 		} catch (err) {
 			console.log(err);
@@ -26,7 +26,7 @@ const LandingPage = () => {
 
 	const loadTodayEvents = useCallback(async () => {
 		try {
-			console.log("today events: " + fetchTodayEvents);
+			console.log('today events: ' + fetchTodayEvents);
 			await dispatch(fetchTodayEvents());
 		} catch (err) {
 			console.log(err);
@@ -36,19 +36,19 @@ const LandingPage = () => {
 
 	useEffect(() => {
 		loadEvents();
-		console.log("rendered");
+		console.log('rendered');
 	}, [dispatch, loadEvents]);
 
 	useEffect(() => {
 		loadTodayEvents();
-		console.log("rendered today events");
+		console.log('rendered today events');
 	}, [dispatch, loadTodayEvents]);
 
 	return (
 		<div>
 			{/* <Banner /> */}
 			<TopGrid events={todayEvents} />
-			<Events2 />
+			<Events2 events={allEvents} />
 			{/* <Events events={allEvents} /> */}
 		</div>
 	);
