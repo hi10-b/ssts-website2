@@ -18,11 +18,14 @@ const Navigation = () => {
 							<Nav.Link style={{ fontWeight: 'bold' }} href="/gallery">
 								Gallery
 							</Nav.Link>
-							<Nav.Link style={{ fontWeight: 'bold' }} href="/allImages">
+							{/* <Nav.Link style={{ fontWeight: 'bold' }} href="/allImages">
 								ImageGallery
-							</Nav.Link>
-							<Nav.Link style={{ fontWeight: 'bold' }} href="/kirtans">
+							</Nav.Link> */}
+							{/* <Nav.Link style={{ fontWeight: 'bold' }} href="/kirtans">
 								Kirtans
+							</Nav.Link> */}
+							<Nav.Link style={{ fontWeight: 'bold' }} href="/acharyas">
+								Acharyas
 							</Nav.Link>
 						</Nav>
 						<Nav>

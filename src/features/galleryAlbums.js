@@ -12,7 +12,7 @@ const GalleryAlbums = (props) => {
 	};
 	return (
 		<Row>
-			<GridContainer title={'Album name 1'} imgPath="/placeHolder2.png" goTo={goToPage} />
+			<GridContainer title={'Album name 1'} imgPath="/placeHolder2.png" onclick={goToPage} />
 			{/* goes to the album path that holds all its images */}
 			<GridContainer title={'Album name 2'} imgPath="/placeHolder2.png" />
 		</Row>

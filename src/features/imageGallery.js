@@ -4,20 +4,8 @@ import ImageGallery from 'react-image-gallery';
 import { useNavigate } from 'react-router-dom';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
-const imagesList = [
-	{
-		original: '/gm2.png',
-		thumbnail: '/gm2.png',
-	},
-	{
-		original: '/gm2.png',
-		thumbnail: '/gm2.png',
-	},
-	{
-		original: '/gm2.png',
-		thumbnail: '/gm2.png',
-	},
-];
+import { imagesList } from './imageList';
+
 const AllImages = () => {
 	const navigate = useNavigate();
 	const goToPage = ({ path }) => {
@@ -25,9 +13,22 @@ const AllImages = () => {
 	};
 	return (
 		<Container>
-			{/* ------------------------------------------------------------------- */}
-			{/* https://www.npmjs.com/package/react-image-gallery */}
-			<ImageGallery items={imagesList} showBullets={true} thumbnailPosition={'left'} goTo={goToPage} />
+			<div style={{ height: '60%', position: 'relative' }}>
+				{/* ------------------------------------------------------------------- */}
+				{/* https://www.npmjs.com/package/react-image-gallery */}
+				<ImageGallery
+					items={imagesList}
+					showBullets={true}
+					thumbnailPosition={'bottom'}
+					lazyLoad={true}
+					useBrowserFullscreen={false}
+					showIndex={true}
+					disableSwipe={false}
+					disableThumbnailScroll={false}
+					onErrorImageURL={'/placeHolder.png'}
+					indexSeparator={'/'}
+				/>
+			</div>
 		</Container>
 	);
 };

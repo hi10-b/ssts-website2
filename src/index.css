@@ -4,7 +4,31 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background: linear-gradient(to right, rgba(0, 224, 255, 1), rgba(0, 133, 255, 1), rgba(0, 224, 255, 1));
+	/* background: linear-gradient(to right, rgba(0, 224, 255, 1), rgba(0, 133, 255, 1), rgba(0, 224, 255, 1)); */
+	/* background: linear-gradient(
+		90deg,
+		rgba(20, 54, 93, 1) 0%,
+		rgba(47, 92, 143, 1) 26%,
+		rgba(0, 249, 255, 1) 50%,
+		rgba(47, 92, 143, 1) 76%,
+		rgba(20, 54, 93, 1) 100%
+	); */
+	/* background: radial-gradient(
+		circle,
+		rgba(20, 54, 93, 1) 0%,
+		rgba(47, 92, 143, 1) 26%,
+		rgba(0, 249, 255, 1) 50%,
+		rgba(47, 92, 143, 1) 76%,
+		rgba(20, 54, 93, 1) 100%
+	); */
+	background: radial-gradient(
+		circle,
+		rgba(20, 54, 93, 1) 0%,
+		rgba(47, 92, 143, 1) 0%,
+		rgba(0, 249, 255, 1) 0%,
+		rgba(20, 54, 93, 1) 99%,
+		rgba(47, 92, 143, 1) 100%
+	);
 }
 
 code {

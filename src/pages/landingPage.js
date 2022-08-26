@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchEvents, fetchTodayEvents } from '../redux/actions/eventsAction';
 import Events from '../features/events';
@@ -10,14 +10,19 @@ import Events2 from '../features/events2';
 
 const LandingPage = () => {
 	// const allEvents = useSelector((state) => state.allEvents.allEvents);
-	const allEvents = allEvents2;
-	const todayEvents = useSelector((state) => state.allEvents.todayEvents);
 
+	const todayEvents = useSelector((state) => state.allEvents.todayEvents);
+	let allEvents = useSelector((state) => state.allEvents.allEvents);
+
+	console.log('allevents', allEvents);
+	if (allEvents.length == 0) {
+		console.log('events from local');
+		allEvents = allEvents2;
+	}
 	const dispatch = useDispatch();
 
 	const loadEvents = useCallback(async () => {
 		try {
-			console.log('events ' + fetchEvents);
 			await dispatch(fetchEvents());
 		} catch (err) {
 			console.log(err);
@@ -26,13 +31,11 @@ const LandingPage = () => {
 
 	const loadTodayEvents = useCallback(async () => {
 		try {
-			console.log('today events: ' + fetchTodayEvents);
 			await dispatch(fetchTodayEvents());
 		} catch (err) {
 			console.log(err);
 		}
 	}, [dispatch]);
-	console.log(todayEvents);
 
 	useEffect(() => {
 		loadEvents();

@@ -5,7 +5,7 @@
 }
 
 .styledCard {
-	opacity: 0.75;
+	opacity: 1;
 }
 
 .styledCard:hover:before,

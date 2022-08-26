@@ -29,7 +29,6 @@ export function fetchEvents() {
 		return axios
 			.get(`${baseURL}`)
 			.then((res) => {
-				console.log(res);
 				dispatch({ type: EventActionTypes.SET_EVENTS, events: res.data });
 			})
 			.catch((err) => {
@@ -38,12 +37,10 @@ export function fetchEvents() {
 	};
 }
 export const fetchTodayEvents = () => {
-	console.log('here');
 	return async (dispatch) => {
 		return await axios
 			.get(`${baseURL}/today`)
 			.then((res) => {
-				console.log(res);
 				dispatch({ type: EventActionTypes.SET_TODAY_EVENTS, todayEvents: res.data });
 			})
 			.catch((err) => {

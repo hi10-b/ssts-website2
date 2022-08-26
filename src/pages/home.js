@@ -10,6 +10,8 @@ import Admin from './user/admin';
 import AllImages from '../features/imageGallery';
 
 import Kirtans from './kirtans';
+import Acharyas from './static pages/acharyas';
+import Footer from '../features/footer';
 
 const Home = () => {
 	return (
@@ -23,8 +25,10 @@ const Home = () => {
 				<Route path="/adminLogin" element={<LoginForm />} />
 				<Route path="/admin" element={<Admin />} />
 				<Route path="/allImages" element={<AllImages />} />
+				<Route path="/acharyas" element={<Acharyas />} />
 				<Route path="*" element={<Navigate replace to="/" />} />
 			</Routes>
+			<Footer />
 		</Router>
 	);
 };

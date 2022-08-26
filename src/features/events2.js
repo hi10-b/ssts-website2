@@ -18,9 +18,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { Paper } from '@mui/material';
 import Events from './events';
 
 import { Container } from 'react-bootstrap';
+import { ClickAwayListener } from '@mui/material';
 
 const drawerWidth = 500;
 
@@ -73,15 +75,19 @@ const Events2 = ({ events }) => {
 	const [eventName, setEventName] = useState('');
 	const [curPosition, setCurPosition] = useState();
 	const [curImg, setCurImg] = useState();
+	const [overlaycolour, setColour] = useState();
+
 	const handleDrawerOpen = (returnEvent) => {
 		if (curPosition == returnEvent.positions) {
 			setOpen(false);
 			setCurPosition();
+			setColour();
 		} else {
 			setOpen(true);
 			setEventName(returnEvent.title);
 			setCurPosition(returnEvent.positions);
 			setCurImg(returnEvent.img);
+			setColour(0.75);
 		}
 	};
 
@@ -89,48 +95,58 @@ const Events2 = ({ events }) => {
 		setOpen(false);
 	};
 
+	const handleClickAway = () => {
+		setOpen(false);
+	};
+
 	return (
 		<Container>
-			<Box sx={{ display: 'flex' }}>
-				<Main open={open}>
-					<Events events={events} onclick={(returnEvent) => handleDrawerOpen(returnEvent)} />
-				</Main>
-				<Drawer
-					sx={{
-						width: drawerWidth,
-						flexShrink: 0,
-						'& .MuiDrawer-paper': {
-							width: '30%',
-						},
-						display: { xs: 'none', md: 'block' },
-					}}
-					variant="persistent"
-					anchor="right"
-					open={open}
-				>
-					<DrawerHeader>
-						<IconButton onClick={handleDrawerClose}>{theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}</IconButton>
-						<div>
-							<h1>Clicked Event</h1>
-						</div>
-					</DrawerHeader>
-					<Divider />
-					<Container>
-						<h1>{curImg}</h1>
-						<img
-							src={curImg}
-							alt={eventName}
-							style={{
-								width: '60%',
-								alignSelf: 'center',
-								position: 'relative',
+			<ClickAwayListener onClickAway={handleClickAway}>
+				<Paper elevation={5} style={{ margin: 10, background: 'rgba(0, 0, 0, 0.3)', marginTop: '10px', marginBottom: '10px' }}>
+					<Box sx={{ display: 'flex' }}>
+						<Main open={open} style={{ opacity: overlaycolour }}>
+							<Events events={events} onclick={(returnEvent) => handleDrawerOpen(returnEvent)} />
+						</Main>
+						<Drawer
+							sx={{
+								width: drawerWidth,
+								flexShrink: 0,
+								'& .MuiDrawer-paper': {
+									width: '30%',
+								},
+								display: { xs: 'none', md: 'block' },
 							}}
-						/>
-						<h1>{eventName}</h1>
-						<h1>{curPosition}</h1>
-					</Container>
-				</Drawer>
-			</Box>
+							variant="persistent"
+							anchor="right"
+							open={open}
+						>
+							<DrawerHeader>
+								<IconButton onClick={handleDrawerClose}>
+									{theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+								</IconButton>
+								<div>
+									<h1>Clicked Event</h1>
+								</div>
+							</DrawerHeader>
+							<Divider />
+							<Container>
+								<h1>{curImg}</h1>
+								<img
+									src={curImg}
+									alt={eventName}
+									style={{
+										width: '60%',
+										alignSelf: 'center',
+										position: 'relative',
+									}}
+								/>
+								<h1>{eventName}</h1>
+								<h1>{curPosition}</h1>
+							</Container>
+						</Drawer>
+					</Box>
+				</Paper>
+			</ClickAwayListener>
 		</Container>
 	);
 };
