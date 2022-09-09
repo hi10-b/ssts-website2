@@ -21,7 +21,7 @@ const TopGrid = ({ events }) => {
 		>
 			{/* <GridTitle title="Events" /> */}
 			<Row style={{ padding: '10px' }}>
-				<CardBlock />
+				
 			</Row>
 		</Container>
 	);
