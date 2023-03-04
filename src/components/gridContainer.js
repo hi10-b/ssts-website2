@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import CardBlock from './cardBlock';
 import { Col, Row } from 'react-bootstrap';
 import ReadMore from './readMore';
@@ -8,6 +8,7 @@ const GridContainer = ({ title, body, imgPath, footer, positions, startDate, des
 	const [counter, setCounter] = useState(0);
 
 	const [show, setShow] = useState(false);
+	const [clicked, setClicked] = useState(false);
 
 	const setX = (cur) => {
 		setCounter(cur + 1);
@@ -18,16 +19,19 @@ const GridContainer = ({ title, body, imgPath, footer, positions, startDate, des
 		counter === 3 ? setShow(true) : setX(counter);
 	}
 
-	const [moreDetails, setMoreDetails] = useState({ positions, startDate, imgPath, description });
+	// const [moreDetails, setMoreDetails] = useState({ positions, startDate, imgPath, description });
+	const [moreRef, setMoreRef] = useState();
+	const moreDetails = useMemo(() => [positions, startDate, imgPath, description, clicked], [clicked, positions, startDate, imgPath, description]);
 
 	const setMoreDetails2 = (positions, startDate, imgPath, description) => {
-		setMoreDetails(positions, startDate, imgPath, description);
+		// setMoreDetails(positions, startDate, imgPath, description);
+		setMoreRef(positions);
 		return moreDetails;
 	};
 
 	useEffect(() => {
-		<ReadMore moreDetails={moreDetails} />;
-	}, [moreDetails]);
+		return <ReadMore key={positions} moreDetails={moreDetails} />;
+	}, [moreDetails, positions]);
 
 	return (
 		<>
@@ -58,12 +62,16 @@ const GridContainer = ({ title, body, imgPath, footer, positions, startDate, des
 			</Col>
 			<Col xl={3} md={6} xs={12} className={'d-none d-xl-block'}>
 				{/* <Col md={6} className="d-none d-sm-block"> */}
+				<h1>{toString(clicked)}</h1>
 				<CardBlock
 					title={title}
 					body={body}
 					imgPath={imgPath}
 					footer={footer}
-					onClick={() => setMoreDetails(positions, startDate, imgPath, description)}
+					// onClick={() => setMoreDetails2(positions, startDate, imgPath, description)}
+					onClick={() => {
+						return setClicked(true);
+					}}
 				/>
 			</Col>
 

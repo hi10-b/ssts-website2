@@ -3,7 +3,9 @@ import { Col } from 'react-bootstrap';
 
 // const ReadMore = ({ positions, startDate, img, description }) => {
 const ReadMore = (props) => {
-	return (
+	const show = props.selectedId;
+
+	return show ? (
 		<Col style={{ background: 'blue', width: '100%' }} xl={12}>
 			{/* <h1>{positions}</h1>
 			<h1>{startDate}</h1>
@@ -13,6 +15,8 @@ const ReadMore = (props) => {
 			<h2>{props.moreDetails.description}</h2>
 			<button className="close">x</button>
 		</Col>
+	) : (
+		<></>
 	);
 };
 

@@ -19,15 +19,11 @@ const imagesList = [
 	},
 ];
 const AllImages = () => {
-	const navigate = useNavigate();
-	const goToPage = ({ path }) => {
-		navigate(`/${path}`);
-	};
 	return (
 		<Container>
 			{/* ------------------------------------------------------------------- */}
 			{/* https://www.npmjs.com/package/react-image-gallery */}
-			<ImageGallery items={imagesList} showBullets={true} thumbnailPosition={'left'} goTo={goToPage} />
+			<ImageGallery items={imagesList} showBullets={true} thumbnailPosition={'left'} />
 		</Container>
 	);
 };

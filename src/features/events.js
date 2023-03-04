@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Container } from 'react-bootstrap';
-import GridContainer from '../components/gridContainer';
+import GridContainer2 from '../components/gridContainer2';
 import printEvents from '../components/printEvents';
 import { ConvertDate } from '../components/convertDate';
 
@@ -25,7 +25,7 @@ const Events = ({ events }) => {
 				{Array.isArray(events) && events.length ? (
 					events.map((event, index) => {
 						return (
-							<GridContainer
+							<GridContainer2
 								key={event.id}
 								title={event.name}
 								imgPath={event.image}
